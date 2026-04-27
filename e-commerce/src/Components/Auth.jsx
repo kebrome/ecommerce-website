@@ -1,10 +1,13 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { authContext } from "../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Auth() {
-  const { signup } = useContext(authContext);
+  const { signup, user, logout, login } = useContext(authContext);
   const [mode, setMode] = useState("signup");
+  const [error, setError] = useState(null);
+  const navigat = useNavigate();
   const {
     register,
     handleSubmit,
@@ -12,8 +15,22 @@ function Auth() {
   } = useForm();
   //   console.log(signup);
   function onSubmit(data) {
-    signup(data.email, data.password);
+    let result;
+
+    if (mode === "signup") {
+      // signup(data.email, data.password);
+      result = signup(data.email, data.password);
+    } else {
+      // login(data.email, data.password);
+      result = login(data.email, data.password);
+    }
+    if (result.success) {
+      navigat("/");
+    } else {
+      setError(result.error);
+    }
   }
+  console.log(logout);
   return (
     <div className="page">
       <div className="container">
@@ -23,6 +40,8 @@ function Auth() {
           </h1>
           <form onSubmit={handleSubmit(onSubmit)} className="auth-form">
             <div className="form-group">
+              {user && <p>u ar logged in {user.email}</p>}
+              {error && <p className="error-message">{error}</p>}
               <label className="form-lable" htmlFor="email">
                 Email
               </label>
