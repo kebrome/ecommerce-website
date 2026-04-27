@@ -18,10 +18,8 @@ function Auth() {
     let result;
 
     if (mode === "signup") {
-      // signup(data.email, data.password);
       result = signup(data.email, data.password);
     } else {
-      // login(data.email, data.password);
       result = login(data.email, data.password);
     }
     if (result.success) {

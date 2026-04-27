@@ -12,7 +12,7 @@ function AuthContext({ children }) {
   );
 
   function signup(email, password) {
-    const users = JSON.parse(localStorage.getItem("users") || []);
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
     if (users.find((u) => u.email === email)) {
       return { success: false, error: "email already exists" };
     }
