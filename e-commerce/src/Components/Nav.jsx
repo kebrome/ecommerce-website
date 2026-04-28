@@ -4,7 +4,6 @@ import { authContext } from "../Context/AuthContext";
 
 function Nav() {
   const { user, logout } = useContext(authContext);
-  console.log(logout);
   return (
     <div className="navbar">
       <div className="navbar-container">
@@ -32,7 +31,7 @@ function Nav() {
           ) : (
             <div className="navbar-user">
               <span className="navbar-greeting">hello {user.email}</span>
-              <button onClick={logout} className="btn btn-primary">
+              <button onClick={logout} className="btn btn-secondary">
                 logout
               </button>
             </div>

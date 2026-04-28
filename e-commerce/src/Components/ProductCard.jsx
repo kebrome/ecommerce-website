@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function ProductCard({ product }) {
+  
   return (
     <div className="product-card">
       <img
@@ -14,7 +15,9 @@ function ProductCard({ product }) {
         <p className="product-card-price">${product.price.toFixed(2)}</p>
       </div>
       <div className="product-card-actions">
-        <Link className="btn btn-secondary">VieW details</Link>
+        <Link className="btn btn-secondary" to={`/products/${product.id}`}>
+          View details
+        </Link>
         <button className="btn btn-primary">add to cart</button>
       </div>
     </div>
