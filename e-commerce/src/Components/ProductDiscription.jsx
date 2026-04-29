@@ -22,8 +22,6 @@ function ProductDiscription() {
   if (!product) {
     return <div className="loader"></div>;
   }
-  // const ProductIncart = cartItems.find((item) => item.id === product.id);
-  // const ProductQuantity = ProductIncart ? `(${ProductIncart.quantity})` : "";
 
   return (
     //
