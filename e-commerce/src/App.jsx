@@ -7,19 +7,22 @@ import AuthContext from "./Context/AuthContext";
 import ProductDiscription from "./Components/ProductDiscription";
 
 import "./App.css";
+import CartContext from "./Context/CartContext";
 
 function App() {
   return (
     <AuthContext>
-      <div className="app">
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/products/:id" element={<ProductDiscription />} />
-        </Routes>
-      </div>
+      <CartContext>
+        <div className="app">
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/products/:id" element={<ProductDiscription />} />
+          </Routes>
+        </div>
+      </CartContext>
     </AuthContext>
   );
 }

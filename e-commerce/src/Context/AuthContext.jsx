@@ -22,6 +22,8 @@ function AuthContext({ children }) {
     localStorage.setItem("currentUserEmail", email);
 
     setUser(email);
+    navigate("/");
+
     return { success: true };
   }
   function login(email, password) {
@@ -34,6 +36,7 @@ function AuthContext({ children }) {
     }
     localStorage.setItem("currentUserEmail", email);
     setUser({ email });
+    navigate("/");
     return { success: true };
   }
 

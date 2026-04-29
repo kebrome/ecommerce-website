@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartItemContext } from "../Context/CartContext";
 
 function ProductCard({ product }) {
-  
+  const { cartItems, addToCart } = useContext(CartItemContext);
+
   return (
     <div className="product-card">
       <img
@@ -18,7 +20,12 @@ function ProductCard({ product }) {
         <Link className="btn btn-secondary" to={`/products/${product.id}`}>
           View details
         </Link>
-        <button className="btn btn-primary">add to cart</button>
+        <button
+          className="btn btn-primary"
+          onClick={() => addToCart(product.id)}
+        >
+          add to cart
+        </button>
       </div>
     </div>
   );

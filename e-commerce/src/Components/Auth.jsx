@@ -7,7 +7,7 @@ function Auth() {
   const { signup, user, logout, login } = useContext(authContext);
   const [mode, setMode] = useState("signup");
   const [error, setError] = useState(null);
-  const navigat = useNavigate();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -23,12 +23,12 @@ function Auth() {
       result = login(data.email, data.password);
     }
     if (result.success) {
-      navigat("/");
+      navigate("/");
     } else {
       setError(result.error);
     }
   }
-  console.log(logout);
+
   return (
     <div className="page">
       <div className="container">
@@ -38,7 +38,6 @@ function Auth() {
           </h1>
           <form onSubmit={handleSubmit(onSubmit)} className="auth-form">
             <div className="form-group">
-              {user && <p>u ar logged in {user.email}</p>}
               {error && <p className="error-message">{error}</p>}
               <label className="form-lable" htmlFor="email">
                 Email
@@ -80,14 +79,14 @@ function Auth() {
           <div className="auth-switch">
             {mode === "signup" ? (
               <p>
-                Already have an account?
+                Already have an account?{" "}
                 <span className="auth-link" onClick={() => setMode("login")}>
                   login
                 </span>
               </p>
             ) : (
               <p>
-                Don't have an account?
+                Don't have an account?{" "}
                 <span className="auth-link" onClick={() => setMode("signup")}>
                   signup
                 </span>
