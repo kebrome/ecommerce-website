@@ -1,3 +1,5 @@
+import ig1 from "../assets/images/img1.jfif";
+
 const products = [
   {
     id: 1,

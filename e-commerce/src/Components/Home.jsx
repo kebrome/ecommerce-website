@@ -8,7 +8,7 @@ function Home() {
   return (
     <div className="page">
       <div className="home-hero">
-        <h1 className="home-title">Wellcome To ShopHub</h1>
+        <h1 className="home-title">Wellcome to Yene Hub</h1>
         <p className="home-subtitle">
           Discover Amezing Products For Great Price
         </p>

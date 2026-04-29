@@ -4,12 +4,12 @@ import { authContext } from "../Context/AuthContext";
 
 function Nav() {
   const { user, logout } = useContext(authContext);
-  // console.log(user.email);
+
   return (
     <div className="navbar">
       <div className="navbar-container">
         <Link to={"/"} className="navbar-brand">
-          ShopeHub
+          Yene Hub
         </Link>
         <div className="navbar-links">
           <Link to="/" className="navbar-link">
